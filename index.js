@@ -1,17 +1,23 @@
+//setting up express and port
 const express = require('express');
 const path = require('path');
 const port = 8000;
 
+//setting mongodb
 const db = require('./config/mongoose');
 const Habit = require('./models/habits');
 
 const app = express();
 
+//seting view engine
 app.set('view engine','ejs');
 app.set('views',path.join(__dirname,'views'));
+
+//middleware for parsing form data
 app.use(express.urlencoded());
 app.use(express.static('assets'));
 
+//middleware used to swt default values
 app.use(function(req,res,next)
  { 
      req.body.todays_status=null;
@@ -26,74 +32,11 @@ app.use(function(req,res,next)
     next();
  });
 
-// var habitList = [
-//           {
-//             name:"Gyming",
-//             time:"8:00 am",
-//             duration:"2",
-//             todays_status:false,
-//             last_day_1:false,
-//             last_day_2:false,
-//             last_day_3:false,
-//             last_day_4:false,
-//             last_day_5:false,
-//             last_day_6:true,
-               
-//           },
-//           {
-//             name:"Gyming",
-//             time:"8:00 am",
-//             duration:"2",
-//             todays_status:false,
-//             last_day_1:false,
-//             last_day_2:false,
-//             last_day_3:false,
-//             last_day_4:false,
-//             last_day_5:false,
-//             last_day_6:false,
-            
-//           },
-//           {
-//             name:"Gyming",
-//             time:"8:00 am",
-//             duration:"2",
-//             todays_status:null,
-//             last_day_1:false,
-//             last_day_2:false,
-//             last_day_3:false,
-//             last_day_4:false,
-//             last_day_5:false,
-//             last_day_6:false,
-                       
-    
-//           },
 
-//           {
-//             name:"Gyming",
-//             time:"8:00 am",
-//             duration:"2",
-//             todays_status:null,
-//             last_day_1:false,
-//             last_day_2:false,
-//             last_day_3:false,
-//             last_day_4:false,
-//             last_day_5:false,
-//             last_day_6:false,
-                       
-    
-//           }
+ //default home page controller
+ app.get('/',function(req,res){
 
-    
-//     ];
-
-app.get('/',function(req,res){
-
-    // return res.render('home',{
-    //     title:"My habits",
-    //     habit_list: habitList
-    
-    // });
-
+    //find in db without query
     Habit.find({},function(err,habits){
         if(err)
         {
@@ -110,6 +53,7 @@ app.get('/',function(req,res){
    
 });
 
+// handling weekly controller
 app.get('/weekly',function(req,res){
    
     Habit.find({},function(err,habits){
@@ -131,6 +75,7 @@ app.get('/weekly',function(req,res){
    
 });
 
+//updating status of task weekly basis
 app.get('/update-status',function(req,res){
    
     console.log(req.query);
@@ -443,7 +388,7 @@ app.get('/update-status',function(req,res){
 });
 
 
-
+//marking task as done
 app.get('/task-check',function(req,res){
 
     let id = req.query.id;
@@ -462,6 +407,7 @@ app.get('/task-check',function(req,res){
     });
 });
 
+// deleting a habit
 app.get('/delete-habit',function(req,res){
 
     let id = req.query.id;
@@ -477,6 +423,7 @@ app.get('/delete-habit',function(req,res){
     });
 });
 
+// create habit
 app.post('/create-habit',function(req,res){
 //    console.log(req.body);
 //    console.log(req.body.name);
@@ -515,7 +462,7 @@ app.post('/create-habit',function(req,res){
 
 });
     
-
+//server listening to port 8000
 app.listen(port,function(err){
   
     if(err)
