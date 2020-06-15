@@ -1,0 +1,71 @@
+<html>
+    <head>
+        <title>
+            <%= title %>
+        </title>
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+        
+        <link rel="stylesheet" href="/css/home.css">
+    </head>
+    <body>
+        <h1 id="page-heading">
+            <i class="fas fa-address-book"></i>
+            My Habits List</h1>
+
+
+            <form action="/create-habit" method="POST">
+                <input type="text" name="name" placeholder="Enter habit" required>
+                <br>
+    
+                <label for="time">Select a time:</label>
+                <input type="time" id="time" name="time" required>
+    
+                <input type="number" id="duration" placeholder="Enter duration in hours  " name="duration" required>
+    
+                <button type="submit">Add</button>
+           </form>
+
+
+        <div id="list-of-habits">
+            <ul>
+                <% for(let i of habit_list) {%>
+                   
+                    <li class="habit">
+                        <div class="details">
+                         <div class="details-nonbtn"><span><%= i.name%></span></div> 
+                         <div id="mark" class="details-btn">
+                             <a href="/task-check/?id=<%= i._id %>" onclick="showNotification('Task Completed')">
+                                <i class="far fa-check-circle"></i>
+                            </a>
+                        </div>
+                         <div id="delete" class="details-btn">
+                             <a href="/delete-habit/?id=<%= i._id %>" onclick="showNotification('Task Deleted')">
+                                <i class="fas fa-trash"></i>
+                                </a>
+                            </div>
+                         
+                         <div class="details-nonbtn">At <span><%= i.time%></span> for <span><%= i.duration%></span> hours</div>
+                         
+                        </div>
+                       
+                    </li>
+                               
+                                       
+                <%}%>
+            </ul>
+
+           <div id="record">
+            <a href="/weekly" >
+                <button>View Record</button>
+            </a>
+           </div> 
+        </div>
+
+        
+
+        <div id="toast"></div>
+       
+        <script type="text/javascript" src="/js/home.js" ></script>
+
+    </body>
+</html>  

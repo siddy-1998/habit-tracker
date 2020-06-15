@@ -1,0 +1,172 @@
+*{
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    margin: 0;
+    padding: 0;
+}
+
+#page-heading{
+    text-align: center;
+    margin-top: 25px;
+    color:grey;
+}
+#list-of-habits{
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+ul{
+    list-style-type: none;
+    margin-left:none;
+    padding: 0;
+}
+
+input:focus, textarea:focus, select:focus{
+    outline: none;
+}
+
+.habit{
+    padding: 3px;
+    width: 360px;
+    background-color:#648FFF;
+    border: 1px solid white;
+    box-shadow: 1px 1px 1px 1px lightgray;
+    margin: auto;
+    margin-bottom: 2px;
+    color:white;
+       
+    /* height: 25px; */
+    padding:auto;
+    /* vertical-align: middle; */
+    display: flex;
+    justify-content: space-around;
+}
+
+.habit .details{
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    grid-template-rows: repeat(2,1fr);
+    height: fit-content;
+    width: 90%;
+    grid-gap: 4px;
+}
+
+.habit .delete-btn{
+    width:10%;
+
+}
+
+.habit #mark a i{
+    font-size: xx-large;
+    color:green;
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+.habit #delete a i{
+    color:red;
+    font-size: xx-large;
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+.habit div a{
+    cursor: pointer;
+}
+
+.details-btn{
+    grid-row: span 2;
+    height: 100%;
+
+}
+
+
+.details-nonbtn{
+    grid-column: span 3;
+}
+
+form{
+    display: block;
+    width:370px;
+    margin: auto;
+    padding: 0;
+}
+
+form input{
+    border-style: none;
+    border-bottom: 1px solid lightseagreen;
+    width: 100%;
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+form button{
+    color: white;
+    background-color:#588BAE;
+    border-style: none;
+    width:100%;
+    font-weight: bold;
+    height: 30px;
+    margin-top: 10px;
+    font-size: large;
+    border: 1px solid white;
+    box-shadow: 1px 1px 1px 1px lightgray;
+}
+
+ form button:hover{
+     background-color:grey;
+     cursor: pointer;
+ }
+
+
+
+#time{
+    width:263px;
+    margin-left: 5px;
+}
+
+#record{
+    margin: auto;
+    
+}
+
+#record a button{
+    width:370px;
+    color: white;
+    background-color:#588BAE;
+    border-style: none;
+    font-weight: bold;
+    height: 30px;
+    margin-top: 10px;
+    font-size: large;
+    border: 1px solid white;
+    box-shadow: 1px 1px 1px 1px lightgray;
+    cursor: pointer;
+}
+
+#record a button:hover{
+    background-color: grey;
+
+}
+
+span{
+     font-weight: bold;
+}
+
+#toast {
+    position: absolute;
+      bottom: 16px;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      display: none;
+  }
+  .toast-error {
+    background: #ff5a5a;
+  }
+  .toast-success {
+    background: #8bc34a;
+  }

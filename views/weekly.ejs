@@ -1,0 +1,163 @@
+<html>
+    <head>
+       <title>
+           <%= locals.title %>
+       </title>   
+       <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+       <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+        <link rel="stylesheet" href="/css/weekly.css">
+    </head>
+    <body>
+        <h1 id="page-heading">Week View</h1>
+       
+        <div id="container">
+           
+          
+            <div id="past" class="items">Last 6 days</div>
+            <div class="items border-left" id="today">Today</div>
+          
+
+          
+            
+            <% for(let i of habit_list) {%>
+                   
+                <div id="name" class="items "><%= i.name%>  (<%= i.time%>)</div>   
+                                
+                <div class="dropdown">
+                    <div class="items">
+                        <% if( i.lastDay6 == false){ %>
+                            <i class="fas fa-times cross"></i>
+                        <% } else if(i.lastDay6 == true) { %>
+                            <i class="fas fa-check tick"></i>
+                        <% } else {%>
+                            
+                            <%} %>
+                    </div>
+                    <div class="dropdown-content">
+                        <a class="done" href="/update-status/?id=<%= i._id %>&val=6&status=done">done&emsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-check tick"></i></a>
+                        <a class="not-done" href="/update-status/?id=<%= i._id %>&val=6&status=notdone">not done&nbsp;<i class="fas fa-times cross"></i></a>
+                        <a class="none" href="/update-status/?id=<%= i._id %>&val=6&status=none">none</a>
+                      </div>
+
+                </div>
+                <div class="dropdown">
+                    <div class="items">
+                        <% if( i.lastDay5 == false){ %>
+                            <i class="fas fa-times cross"></i>
+                        <% } else if(i.lastDay5 == true) { %>
+                            <i class="fas fa-check tick"></i>
+                        <% } else {%>
+                            
+                            <%} %>
+                    </div>
+                    <div class="dropdown-content">
+                        <a class="done" href="/update-status/?id=<%= i._id %>&val=5&status=done">done&emsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-check tick"></i></a>
+                        <a class="not-done" href="/update-status/?id=<%= i._id %>&val=5&status=notdone">not done&nbsp;<i class="fas fa-times cross"></i></a>
+                        <a class="none" href="/update-status/?id=<%= i._id %>&val=5&status=none">none</a>
+                      </div>
+
+                </div>
+                <div class="dropdown">
+                    <div class="items">
+                        <% if( i.lastDay4 == false){ %>
+                            <i class="fas fa-times cross"></i>
+                        <% } else if(i.lastDay4 == true) { %>
+                            <i class="fas fa-check tick"></i>
+                        <% } else {%>
+                            
+                            <%} %>
+                    </div>
+                    <div class="dropdown-content">
+                        <a class="done" href="/update-status/?id=<%= i._id %>&val=4&status=done">done&emsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-check tick"></i></a>
+                        <a class="not-done" href="/update-status/?id=<%= i._id %>&val=4&status=notdone">not done&nbsp;<i class="fas fa-times cross"></i></a>
+                        <a class="none" href="/update-status/?id=<%= i._id %>&val=4&status=none">none</a>
+                      </div>
+
+                </div>
+                <div class="dropdown">
+                    <div class="items">
+                        <% if( i.lastDay3 == false){ %>
+                            <i class="fas fa-times cross"></i>
+                        <% } else if(i.lastDay3 == true) { %>
+                            <i class="fas fa-check tick"></i>
+                        <% } else {%>
+                            
+                            <%} %>
+                    </div>
+                    <div class="dropdown-content">
+                        <a class="done" href="/update-status/?id=<%= i._id %>&val=3&status=done">done&emsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-check tick"></i></a>
+                        <a class="not-done" href="/update-status/?id=<%= i._id %>&val=3&status=notdone">not done&nbsp;<i class="fas fa-times cross"></i></a>
+                        <a class="none" href="/update-status/?id=<%= i._id %>&val=3&status=none">none</a>
+                      </div>
+
+                </div>
+                <div class="dropdown">
+                    <div class="items">
+                        <% if( i.lastDay2 == false){ %>
+                            <i class="fas fa-times cross"></i>
+                        <% } else if(i.lastDay2 == true) { %>
+                            <i class="fas fa-check tick"></i>
+                        <% } else {%>
+                            
+                            <%} %>
+                    </div>
+                    <div class="dropdown-content">
+                        <a class="done" href="/update-status/?id=<%= i._id %>&val=2&status=done">done&emsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-check tick"></i></a>
+                        <a class="not-done" href="/update-status/?id=<%= i._id %>&val=2&status=notdone">not done&nbsp;<i class="fas fa-times cross"></i></a>
+                        <a class="none" href="/update-status/?id=<%= i._id %>&val=2&status=none">none</a>
+                      </div>
+
+                </div>
+                
+                <div class="dropdown">
+                    <div class="items">
+                        <% if( i.lastDay1 == false){ %>
+                            <i class="fas fa-times cross"></i>
+                        <% } else if(i.lastDay1 == true) { %>
+                            <i class="fas fa-check tick"></i>
+                        <% } else {%>
+                            
+                            <%} %>
+                    </div>
+                    <div class="dropdown-content">
+                        <a class="done" href="/update-status/?id=<%= i._id %>&val=1&status=done">done&emsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-check tick"></i></a>
+                        <a class="not-done" href="/update-status/?id=<%= i._id %>&val=1&status=notdone">not done&nbsp;<i class="fas fa-times cross"></i></a>
+                        <a class="none" href="/update-status/?id=<%= i._id %>&val=1&status=none">none</a>
+                      </div>
+
+                </div>
+
+                <div class="dropdown">
+                    <div class="items border-left">
+                        <% if( i.today == false){ %>
+                            <i class="fas fa-times cross"></i>
+                        <% } else if(i.today == true) { %>
+                            <i class="fas fa-check tick"></i>
+                        <% } else {%>
+                            
+                            <%} %>
+                    </div>
+                    <div class="dropdown-content">
+                        <a class="done" href="/update-status/?id=<%= i._id %>&val=0&status=done">done&emsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-check tick"></i></a>
+                        <a class="not-done" href="/update-status/?id=<%= i._id %>&val=0&status=notdone">not done&nbsp;<i class="fas fa-times cross"></i></a>
+                        <a class="none" href="/update-status/?id=<%= i._id %>&val=0&status=none">none</a>
+                      </div>
+
+                </div>
+                
+
+                
+                        
+                
+                               
+                                       
+            <%}%>
+   
+        </div>
+        
+        <script type="text/javascript" src="/js/weekly.js" ></script>
+
+
+    </body>
+</html>
