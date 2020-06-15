@@ -33,3 +33,8 @@ A habit tracker app. build using node.js, ejs as a template engine and data stor
   - node index.js / nodemon index.js
   - open robo3T (optional - just to visualize the db)
 
+### Screenshots of the App
+![](assets/images/ss1.PNG)
+
+
+![](assets/images/ss2.PNG)
