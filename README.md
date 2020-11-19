@@ -1,6 +1,8 @@
 # Habit Tracker app
 A habit tracker app. build using node.js, ejs as a template engine and data storage done in local mongod
 
+### Video Link -> https://youtu.be/tXU3bI66Ayc
+
 ### Directory Structure followed
 
 - assets
